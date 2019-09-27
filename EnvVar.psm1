@@ -109,6 +109,13 @@ function Update-EnvVarSetting {
     }
 }
 
+<#
+    .SYNOPSIS
+        Gets the environment variable for given name and scope.
+
+    .EXAMPLE
+        Get-EnvironmentVariable -Name SOME_ENVVAR -Scope Process
+#>
 function Get-EnvironmentVariable {
     [CmdletBinding()]
     param (
@@ -168,6 +175,13 @@ function Get-EnvironmentVariable {
     }
 }
 
+<#
+    .SYNOPSIS
+        Sets the environment variable for given name and scope.
+
+    .EXAMPLE
+        Set-EnvironmentVariable -Name NEW_ENVVAR -Value new_value -Scope User -ValueType String -Inherit Auto
+#>
 function Set-EnvironmentVariable {
     [CmdletBinding()]
     param (
