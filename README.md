@@ -1,5 +1,7 @@
 # EnvVar
 
+[![Build Status](https://dev.azure.com/mytgnq/pwsh-EnvVar/_apis/build/status/GNQG.pwsh-EnvVar?branchName=master)](https://dev.azure.com/mytgnq/pwsh-EnvVar/_build/latest?definitionId=1&branchName=master)
+
 A PowerShell module to handle environment variables,  supporting variable expansion.
 
 ## Install
