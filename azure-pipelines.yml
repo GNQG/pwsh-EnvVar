@@ -8,7 +8,7 @@ jobs:
   - job: test
     displayName: Unit tests
     steps:
-      - powershell: 
+      - powershell:
           Install-Module Pester -Scope CurrentUser -Force
         name: test_deps
         displayName: Install tests' dependencies
