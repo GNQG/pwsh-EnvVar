@@ -19,7 +19,7 @@ jobs:
   - deployment: publish
     displayName: Publish to PowerShell Gallery
     dependsOn: [test]
-    condition: "ne(always())" # temporary
+    condition: "eq(succeeded(), failed())" # temporary
     strategy:
       runOnce:
         deploy:
