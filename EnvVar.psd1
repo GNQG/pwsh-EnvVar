@@ -30,9 +30,9 @@
 
             Tags       = @("environment", "envvar", "env", "path", "windows", "registry")
 
-            LicenseUri = 'https://github.com/GNQG/EnvVar/blob/master/LICENSE'
+            LicenseUri = 'https://github.com/GNQG/pwsh-EnvVar/blob/master/LICENSE'
 
-            ProjectUri = 'https://github.com/GNQG/EnvVar'
+            ProjectUri = 'https://github.com/GNQG/pwsh-EnvVar'
 
             # ReleaseNotes = ''
 
