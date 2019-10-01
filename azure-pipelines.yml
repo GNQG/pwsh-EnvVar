@@ -20,6 +20,7 @@ jobs:
     displayName: Publish to PowerShell Gallery
     dependsOn: [test]
     condition: "eq(succeeded(), failed())" # temporary
+    environment: PSGallery
     strategy:
       runOnce:
         deploy:
