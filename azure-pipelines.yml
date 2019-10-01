@@ -1,0 +1,26 @@
+trigger:
+  - master
+
+pool:
+  vmImage: 'windows-latest'
+
+jobs:
+  - job: test
+    displayName: Unit tests
+    steps:
+      - powershell: 
+          Install-Module Pester -Scope CurrentUser -Force
+        name: test_deps
+        displayName: Install tests' dependencies
+      - powershell: |
+          Invoke-Pester test/EnvVar.Tests.ps1
+        name: test_body
+        displayName: Run tests
+  - deployment: publish
+    displayName: Publish to PowerShell Gallery
+    dependsOn: [test]
+    condition: "ne(always())" # temporary
+    strategy:
+      runOnce:
+        deploy:
+          steps: []
