@@ -1,6 +1,8 @@
 # EnvVar
 
 [![Build Status](https://dev.azure.com/mytgnq/pwsh-EnvVar/_apis/build/status/GNQG.pwsh-EnvVar?branchName=master)](https://dev.azure.com/mytgnq/pwsh-EnvVar/_build/latest?definitionId=1&branchName=master)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/EnvVar)](https://www.powershellgallery.com/packages/EnvVar/)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/p/EnvVar)](https://www.powershellgallery.com/packages/EnvVar/)
 
 A PowerShell module to handle environment variables,  supporting variable expansion.
 
