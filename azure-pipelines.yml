@@ -34,9 +34,14 @@ jobs:
                 Install-Module PowerShellGet -Scope CurrentUser -Force
               name: deploy_deps
               displayName: Install dependencies for deployment
+            - checkout: self
             - powershell: |
-                Import-Module ./EnvVar.psd1
-                Publish-Module EnvVar -NuGetApiKey $Env:NUGET_APIKEY
+                New-Item EnvVar -ItemType Directory
+                Copy-Item test, EnvVar.psd1, EnvVar.psm1, LICENSE, README.md -Destination EnvVar -Recurse
+              name: deploy_prepare
+              displayName: Prepare files
+            - powershell: |
+                Publish-Module -Path EnvVar -NuGetApiKey $Env:NUGET_APIKEY
               name: deploy_publish
               displayName: Publish the module to PowerShell Gallery
               env:
