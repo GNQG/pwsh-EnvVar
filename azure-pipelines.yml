@@ -1,5 +1,10 @@
 trigger:
-  - master
+  tags:
+    include:
+    - v*
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: 'windows-latest'
@@ -19,9 +24,20 @@ jobs:
   - deployment: publish
     displayName: Publish to PowerShell Gallery
     dependsOn: [test]
-    condition: "eq(succeeded(), failed())" # temporary
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
     environment: PSGallery
     strategy:
       runOnce:
         deploy:
-          steps: []
+          steps:
+            - powershell: |
+                Install-Module PowerShellGet -Scope CurrentUser -Force
+              name: deploy_deps
+              displayName: Install dependencies for deployment
+            - powershell: |
+                Import-Module ./EnvVar.psd1
+                Publish-Module EnvVar -NuGetApiKey $Env:NUGET_APIKEY
+              neme: deploy_publish
+              displayName: Publish the module to PowerShell Gallery
+              env:
+                NUGET_APIKEY: $(nuget_api_secret)
