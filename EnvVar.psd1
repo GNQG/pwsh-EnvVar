@@ -2,7 +2,7 @@
 
     RootModule        = 'EnvVar.psm1'
 
-    ModuleVersion     = '0.0.0'
+    ModuleVersion     = '0.1.0'
 
     GUID              = '48004ebf-fec1-48ae-9430-aba9ffead502'
 
